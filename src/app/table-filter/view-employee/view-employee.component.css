@@ -1,0 +1,20 @@
+.flex{
+    display: flex;
+    gap: 24px;
+}
+
+p{
+    margin-top: 4px;
+}
+
+h3 {
+    font-weight: 500;
+}
+.cancel-button {
+    padding: 5px 0;
+    width: 100px;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    cursor: pointer;
+}

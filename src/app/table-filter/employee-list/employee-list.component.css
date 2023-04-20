@@ -1,0 +1,119 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    }
+  
+    h2{
+      color: #3986e7;
+    }
+  
+    .currently-working {
+      background: green;
+      font-weight: bold;
+      color: white;
+      padding: 0px;
+      text-align: center;
+      border-radius: 10px !important;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #DDD;
+    }
+  
+  
+  
+    .wrap_form{
+      display: flex;
+      gap: 10px;
+    }
+  
+  
+  
+  
+  
+    form {
+      display: grid;
+      /* grid-template-columns: 1fr 1fr; */
+      /* grid-template-rows: repeat(5, auto); */
+      gap: 1rem;
+    }
+    
+    
+    .form-floating {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-floating label {
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .form-floating select {
+      height: auto;
+    }
+    
+    small {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+    }
+    .btn_blue{
+      padding: 10px;
+      border: none;
+      background: #3986e7;
+      cursor: pointer;
+    }
+    .wrap_btns{
+      display: flex;
+      gap: 5px;
+    }
+  
+    .fa-eye:before {
+      content: "\f06e";
+     color: white;
+    }
+  
+    .fa-trash:before {
+      content: "\f1f8";
+     color: white;
+      padding: 2px;
+  }
+  
+  .fa-user-plus:before {
+    content: "\f234";
+    color: white;
+  }
+  
+  .close_btn{
+    background: #3986e7;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .filter_btn{
+    background: #3986e7;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .wrap_div{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .form-control{
+    padding: 5px 0 5px 0;
+  }

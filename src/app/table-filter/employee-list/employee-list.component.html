@@ -1,0 +1,150 @@
+<div class="container">
+    <h2>Employee List</h2>
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()" >
+      <div class="wrap_form">
+
+
+      <div class="inline-block">
+        <input type="text" id="name" name="name" formControlName="name" placeholder="Search By Name" class="form-control">
+      </div>
+    
+      <div class="inline-block">
+        <select id="jobRole" name="jobRole" formControlName="jobRole" class="form-control">
+          <option value="">All</option>
+          <option value="Manager">Manager</option>
+          <option value="Developer">Developer</option>
+          <option value="Designer">Designer</option>
+        </select>
+      </div>
+    
+      <div class="inline-block">
+        <input type="number" id="age" name="age" formControlName="age" placeholder="age" class="form-control">
+      </div>
+    
+      <div class="inline-block">
+        <input type="date" id="startDate" name="startDate" formControlName="startDate" class="form-control">
+      </div>
+    
+      <div class="inline-block">
+        <input type="date" id="endDate" name="endDate" formControlName="endDate" class="form-control">
+      </div>
+    
+      <div class="wrap_div">
+        <button type="submit" class="filter_btn"><i class="fa fa-filter" ></i></button>
+        <button type="button" (click)="onReset()" class="close_btn"><i class="fa fa-times"></i></button>
+      </div>
+    </div>
+    </form>
+      <ng-container *ngIf="filteredData?.length; else noData">
+        
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Job Role</th>
+              <th>Age</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Action &nbsp; <button (click)="openDialog()" class="btn_blue"><i class="fa fa-user-plus"></i>
+                 </button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of filteredData; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.jobRole }}</td>
+              <td>{{ item.age }}</td>
+              <td>{{ item.startDate }}</td>
+              <td class="{{ checkEndDate(item.endDate).class }}">{{ checkEndDate(item.endDate).text }}</td>
+              <td>
+                <div class="wrap_btns">
+                  <button (click)="viewEmployee(item)" class="btn_blue"><i class="fa fa-eye"></i> </button>
+                  <button (click)="deleteEmployee(item.id)" class="btn_blue"><i class="fa fa-trash"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+      <ng-template #noData>No data found</ng-template>
+      
+      
+</div>
+
+<ng-template #addEmployee>
+  <!-- <mat-dialog-actions align="end">
+    <button mat-icon-button (click)="closeAd()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-dialog-actions> -->
+  
+  <div class="row">
+    <h2>Add New Employee</h2>
+  </div>
+  <div>
+    <form #employeeForm="ngForm" (ngSubmit)="addRecord(employeeForm)" class="employee-form">
+      <div class="form-row">
+        <div class="form-floating mb-3 col-md-6">
+          <label for="name">Employee Name</label>
+          <input type="text" name="name" [(ngModel)]="model.name" class="form-control" id="name" placeholder="Employee Name" #name="ngModel" required>
+         
+          <small *ngIf="name.invalid && (name.dirty || name.touched)">
+            <small *ngIf="name.errors && name.errors['required']">
+              Employee Name is required.
+            </small>
+          </small>
+        </div>
+        <div class="form-floating mb-3 col-md-6">
+          <label for="age">Age</label>
+          <input type="number" name="age" [(ngModel)]="model.age" class="form-control" id="age" placeholder="Enter Age" #age="ngModel" required>
+          <small *ngIf="age.invalid && (age.dirty || age.touched)">
+            <small *ngIf="age.errors && age.errors['required']">
+              Age is required.
+            </small>
+          </small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-floating mb-3 col-md-6">
+          <label for="jobRole">Job Role </label>
+          <select class="form-select form-control" name="jobRole" [(ngModel)]="model.jobRole" id="jobRole" aria-label="Floating jobRole select example" #jobRole="ngModel" required>
+            <option value="Designer">Designer</option>
+            <option value="Developer">Developer</option>
+            <option value="Manager">Manager</option>
+          </select>
+          <small *ngIf="jobRole.invalid && (jobRole.dirty || jobRole.touched)">
+            <small *ngIf="jobRole.errors && jobRole.errors['required']">
+              Job Role is required.
+            </small>
+          </small>
+        </div>
+        <div class="form-floating mb-3 col-md-6">
+          <label for="startDate">Start Date</label>
+          <input type="date" name="startDate" [(ngModel)]="model.startDate" class="form-control" id="startDate" placeholder="startDate" #startDate="ngModel" required>
+          <small *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)">
+            <small *ngIf="startDate.errors && startDate.errors['required']">
+              Start Date is required.
+            </small>
+          </small>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-floating mb-3 col-md-6">
+          <label for="endDate">End Date</label>
+          <input type="date" name="endDate" [(ngModel)]="model.endDate" class="form-control" id="endDate" placeholder="endDate" #endDate="ngModel" required>
+          <small *ngIf="endDate.invalid && (endDate.dirty || endDate.touched)">
+            <small *ngIf="endDate.errors && endDate.errors['required']">
+              End Date is required.
+            </small>
+          </small>
+        </div>
+      </div>
+      <button type="submit">Add Record</button>
+    </form>
+  </div>
+  </ng-template>
+<ng-container *ngIf="isAddEmployee;">
+  <ng-container *ngTemplateOutlet="addEmployee;"></ng-container>
+</ng-container>

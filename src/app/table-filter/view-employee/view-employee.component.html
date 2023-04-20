@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Employee Detail</h2>
+<hr>
+<mat-dialog-content class="mat-typography">
+
+  <div class="flex">
+    <h3>Employee Name:</h3>
+    <p>{{data.name}}</p>
+  </div>
+ 
+<div class="flex">
+  <h3>Employee age:</h3>
+  <p>{{data.age}}</p>
+</div>
+  <div class="flex">
+    <h3>Job Role:</h3>
+  <p>{{data.jobRole}}</p>
+  </div>
+  
+<div class="flex">
+  <h3>Start Date:</h3>
+  <p>{{data.startDate}}</p>
+</div>
+  <div class="flex">
+    <h3>End Date:</h3>
+  <p>{{data.endDate}}</p>
+  </div>
+  
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="cancel-button" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
