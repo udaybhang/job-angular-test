@@ -42,6 +42,22 @@ export class EmployeeListComponent implements OnInit {
         age: 42,
         startDate: '2022-03-01',
         endDate: '2023-08-31'
+      },
+      {
+        id:4,
+        name: 'palak soni',
+        jobRole: 'Designer',
+        age: 21,
+        startDate: '2022-09-15',
+        endDate: '2023-08-31'
+      },
+      {
+        id:5,
+        name: 'adity panday',
+        jobRole: 'Developer',
+        age: 24,
+        startDate: '2023-04-10',
+        endDate: '2023-08-31'
       }
     ];
     this.filterForm = this.fb.group({
