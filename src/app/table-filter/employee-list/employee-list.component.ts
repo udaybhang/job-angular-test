@@ -21,7 +21,7 @@ export class EmployeeListComponent implements OnInit {
     this.data =  [
       {
         id:1,
-        name: 'John Smith',
+        name: 'john Smith',
         jobRole: 'Manager',
         age: 35,
         startDate: '2022-01-01',
@@ -29,7 +29,7 @@ export class EmployeeListComponent implements OnInit {
       },
       {
         id:2,
-        name: 'Jane Doe',
+        name: 'jane Doe',
         jobRole: 'Developer',
         age: 28,
         startDate: '2022-02-15',
@@ -37,7 +37,7 @@ export class EmployeeListComponent implements OnInit {
       },
       {
         id:3,
-        name: 'Bob Johnson',
+        name: 'bob Johnson',
         jobRole: 'Designer',
         age: 42,
         startDate: '2022-03-01',
